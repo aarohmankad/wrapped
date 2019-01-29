@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     @import url('https://fonts.googleapis.com/css?family=Nunito');
     font-family: 'Nunito', sans-serif;
+    margin: 0;
   }
 `;
 

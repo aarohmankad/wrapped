@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Button from '../components/Button';
+import ActionButton from '../components/Button/ActionButton';
 import Navigation from '../components/Navigation';
 
 const Home = props => {
   return (
     <div>
       <Navigation />
-      <Button>Wrapped</Button>
+      <ActionButton>Wrapped</ActionButton>
     </div>
   );
 };
