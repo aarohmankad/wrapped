@@ -1,5 +1,13 @@
 import { combineReducers } from 'redux';
 
-import ping from './ping';
+export default combineReducers({
+  // firebase,
+});
 
-export default combineReducers({ ping });
+// if (module.hot) {
+//   // Enable Webpack hot module replacement for reducers
+//   module.hot.accept('./reducer', () => {
+//     const nextRootReducer = require('./reducer');
+//     store.replaceReducer(nextRootReducer);
+//   });
+// }

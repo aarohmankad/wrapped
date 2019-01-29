@@ -1,6 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Button from '../components/Button';
+import Navigation from '../components/Navigation';
 
-export default () => <Button>Wrapped</Button>;
+const Home = props => {
+  return (
+    <div>
+      <Navigation />
+      <Button>Wrapped</Button>
+    </div>
+  );
+};
+
+export default Home;

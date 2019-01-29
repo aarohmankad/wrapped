@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+import Firebase, { FirebaseContext } from '../components/Firebase';
 import store from '../redux/store';
 
 const theme = {
@@ -37,11 +38,13 @@ export default class MyApp extends App {
     return (
       <Container>
         <GlobalStyle />
-        <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </Provider>
+        <FirebaseContext.Provider value={new Firebase()}>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </Provider>
+        </FirebaseContext.Provider>
       </Container>
     );
   }
