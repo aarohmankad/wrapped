@@ -1,5 +1,5 @@
-import { compose } from 'recompose';
 import React, { Component } from 'react';
+import { compose } from 'recompose';
 import router from 'next/router';
 
 import Navigation from '../components/Navigation';
