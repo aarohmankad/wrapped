@@ -7,10 +7,10 @@ export default {
     text: 'Sign Up',
     path: '/signup',
   },
-  // SIGN_IN: {
-  //   text: 'Sign In',
-  //   path: '/signin',
-  // },
+  SIGN_IN: {
+    text: 'Sign In',
+    path: '/signin',
+  },
   // FORGOT_PASSWORD: {
   //   text: 'Forgot Password?',
   //   path: '/forgotpassword',

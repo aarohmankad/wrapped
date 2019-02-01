@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default ({ children, ...props }) => {
   return (
     <Link {...props} prefetch>
-      {children}
+      <a href="">{children}</a>
     </Link>
   );
 };
