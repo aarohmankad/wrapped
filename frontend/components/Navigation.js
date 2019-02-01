@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Link from './Link';
+import SignoutButton from './Button/SignoutButton';
 import ROUTES from '../constants/ROUTES';
 
 export default () => (
@@ -11,6 +12,9 @@ export default () => (
           <Link href={ROUTES[route].path}>{ROUTES[route].text}</Link>
         </li>
       ))}
+      <li>
+        <SignoutButton />
+      </li>
     </ul>
   </div>
 );
