@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import router from 'next/router';
 
+import Link from '../components/Link';
 import Navigation from '../components/Navigation';
 import ROUTES from '../constants/ROUTES';
 import { withFirebase } from '../components/Firebase';
@@ -43,6 +44,7 @@ class Signin extends Component {
     return (
       <div>
         <Navigation />
+        <h1>Sign in</h1>
         <form onSubmit={this.onSubmit}>
           <input
             name="email"
@@ -61,6 +63,17 @@ class Signin extends Component {
           <button disabled={isInvalid} type="submit">
             Sign In
           </button>
+
+          <p>
+            Don't have an account?{' '}
+            <Link href={ROUTES.SIGN_UP.path}>{ROUTES.SIGN_UP.text}</Link>
+          </p>
+          <p>
+            Forgot your Password?{' '}
+            <Link href={ROUTES.FORGOT_PASSWORD.path}>
+              {ROUTES.FORGOT_PASSWORD.text}
+            </Link>
+          </p>
           {error && <p>{error.message}</p>}
         </form>
       </div>

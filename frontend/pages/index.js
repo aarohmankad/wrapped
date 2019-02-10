@@ -7,7 +7,7 @@ const Home = props => {
   return (
     <div>
       <Navigation />
-      <ActionButton>Wrapped</ActionButton>
+      <h1>Wrapped</h1>
     </div>
   );
 };
