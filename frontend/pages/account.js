@@ -3,4 +3,4 @@ import styled from 'styled-components';
 
 import ActionButton from '../components/Button/ActionButton';
 
-export default () => <ActionButton>About</ActionButton>;
+export default () => <ActionButton>Account</ActionButton>;

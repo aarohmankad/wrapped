@@ -11,16 +11,16 @@ export default {
     text: 'Sign In',
     path: '/signin',
   },
-  // FORGOT_PASSWORD: {
-  //   text: 'Forgot Password?',
-  //   path: '/forgotpassword',
-  // },
-  // DASHBOARD: {
-  //   text: 'Dashboard',
-  //   path: '/dashboard',
-  // },
-  // ACCOUNT: {
-  //   text: 'Account',
-  //   path: '/account',
-  // },
+  FORGOT_PASSWORD: {
+    text: 'Forgot Password?',
+    path: '/forgotpassword',
+  },
+  DASHBOARD: {
+    text: 'Dashboard',
+    path: '/dashboard',
+  },
+  ACCOUNT: {
+    text: 'Account',
+    path: '/account',
+  },
 };

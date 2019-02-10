@@ -1,13 +1,6 @@
 import { combineReducers } from 'redux';
+import auth from './auth';
 
 export default combineReducers({
-  // firebase,
+  auth,
 });
-
-// if (module.hot) {
-//   // Enable Webpack hot module replacement for reducers
-//   module.hot.accept('./reducer', () => {
-//     const nextRootReducer = require('./reducer');
-//     store.replaceReducer(nextRootReducer);
-//   });
-// }

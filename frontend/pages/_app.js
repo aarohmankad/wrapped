@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import Firebase, { FirebaseContext } from '../components/Firebase';
+import { authStateChanged } from '../redux/actions/Auth';
 import store from '../redux/store';
 
 const theme = {
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const firebase = new Firebase();
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
@@ -33,13 +35,19 @@ export default class MyApp extends App {
     return { pageProps };
   }
 
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(user =>
+      store.dispatch(authStateChanged(user))
+    );
+  }
+
   render() {
     const { Component, pageProps } = this.props;
 
     return (
       <Container>
         <GlobalStyle />
-        <FirebaseContext.Provider value={new Firebase()}>
+        <FirebaseContext.Provider value={firebase}>
           <Provider store={store}>
             <ThemeProvider theme={theme}>
               <Component {...pageProps} />
