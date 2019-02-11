@@ -42,7 +42,14 @@ class Signin extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <div>
+      <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+          backgroundImage: 'url(/static/login_background.jpg)',
+          backgroundSize: 'cover',
+        }}
+      >
         <Navigation />
         <h1>Sign in</h1>
         <form onSubmit={this.onSubmit}>
