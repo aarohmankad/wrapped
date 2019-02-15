@@ -1,14 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import Link from './Link';
 import SignoutButton from './Button/SignoutButton';
 import ROUTES from '../constants/ROUTES';
 
+const List = styled.ul`
+  list-style-type: none;
+  float: right;
+  & > li {
+    display: inline;
+    margin: 20px;
+    font-size: 28px;
+    font-weight: bold;
+
+    & > a {
+      color: black;
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+`;
+
 const Navigation = ({ user }) =>
   !user ? (
     <div>
-      <ul>
+      <List>
         <li>
           <Link href={ROUTES.HOME.path}>{ROUTES.HOME.text}</Link>
         </li>
@@ -18,11 +39,11 @@ const Navigation = ({ user }) =>
         <li>
           <Link href={ROUTES.SIGN_IN.path}>{ROUTES.SIGN_IN.text}</Link>
         </li>
-      </ul>
+      </List>
     </div>
   ) : (
     <div>
-      <ul>
+      <List>
         <li>
           <Link href={ROUTES.HOME.path}>{ROUTES.HOME.text}</Link>
         </li>
@@ -34,7 +55,7 @@ const Navigation = ({ user }) =>
         </li>
 
         <SignoutButton />
-      </ul>
+      </List>
     </div>
   );
 
