@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import router from 'next/router';
+import styled from 'styled-components';
 
 import Link from '../components/Link';
 import Navigation from '../components/Navigation';
@@ -11,6 +12,13 @@ const INITIAL_STATE = {
   password: '',
   error: null,
 };
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/static/login_background.jpg);
+  background-size: cover;
+`;
 
 class Signin extends Component {
   constructor(props) {
@@ -42,14 +50,7 @@ class Signin extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <div
-        style={{
-          width: '100vw',
-          height: '100vh',
-          backgroundImage: 'url(/static/login_background.jpg)',
-          backgroundSize: 'cover',
-        }}
-      >
+      <Container>
         <Navigation />
         <h1>Sign in</h1>
         <form onSubmit={this.onSubmit}>
@@ -83,7 +84,7 @@ class Signin extends Component {
           </p>
           {error && <p>{error.message}</p>}
         </form>
-      </div>
+      </Container>
     );
   }
 }
