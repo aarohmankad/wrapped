@@ -93,17 +93,21 @@ class Signin extends Component {
 						</ActionButton>
 					</form>
 
-					<Link href={ROUTES.SIGN_UP.path}>
-						{ROUTES.SIGN_UP.text}.
-					</Link>
-					<Link href={ROUTES.FORGOT_PASSWORD.path}>
-						{ROUTES.FORGOT_PASSWORD.text}
-					</Link>
-					{error && <p>{error.message}</p>}
-				</Container>
-			</div>
-		);
-	}
+          <p>
+            Don't have an account?{' '}
+            <Link href={ROUTES.SIGN_UP.path}>{ROUTES.SIGN_UP.text}</Link>
+          </p>
+          <p>
+            Forgot your Password?{' '}
+            <Link href={ROUTES.FORGOT_PASSWORD.path}>
+              {ROUTES.FORGOT_PASSWORD.text}
+            </Link>
+          </p>
+          {error && <p>{error.message}</p>}
+        </form>
+      </Container>
+    );
+  }
 }
 
 export default withFirebase(Signin);
