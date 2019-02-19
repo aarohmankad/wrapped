@@ -8,84 +8,108 @@ import ROUTES from '../constants/ROUTES';
 import { withFirebase } from '../components/Firebase';
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
+	email: '',
+	password: '',
+	error: null,
 };
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-image: url(/static/login_background.jpg);
-  background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	background-image: url(/static/login_background.jpg);
+	background-size: cover;
+`;
+
+const Container2 = styled.div`
+	text-align: center;
 `;
 
 class Signin extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = { ...INITIAL_STATE };
-  }
+		this.state = { ...INITIAL_STATE };
+	}
 
-  onChange = event =>
-    this.setState({ [event.target.name]: event.target.value });
+	onChange = event =>
+		this.setState({ [event.target.name]: event.target.value });
 
-  onSubmit = event => {
-    const { email, password } = this.state;
-    this.props.firebase
-      .doSignInWithEmailAndPassword(email, password)
-      .then(authUser => {
-        this.setState({ ...INITIAL_STATE });
-        router.push(ROUTES.HOME.path);
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
-    event.preventDefault();
-  };
+	onSubmit = event => {
+		const { email, password } = this.state;
+		this.props.firebase
+			.doSignInWithEmailAndPassword(email, password)
+			.then(authUser => {
+				this.setState({ ...INITIAL_STATE });
+				router.push(ROUTES.HOME.path);
+			})
+			.catch(error => {
+				this.setState({ error });
+			});
+		event.preventDefault();
+	};
 
-  render() {
-    const { email, password, error } = this.state;
+	render() {
+		const { email, password, error } = this.state;
 
-    const isInvalid = password === '' || email === '';
+		const isInvalid = password === '' || email === '';
 
-    return (
-      <Container>
-        <Navigation />
-        <h1>Sign in</h1>
-        <form onSubmit={this.onSubmit}>
-          <input
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            type="text"
-            placeholder="Email"
-          />
-          <input
-            name="password"
-            value={password}
-            onChange={this.onChange}
-            type="password"
-          />
-          <button disabled={isInvalid} type="submit">
-            Sign In
-          </button>
+		return (
+			<Container>
+				<Navigation />
+				<h1
+					style={{
+						color: '#FFFFFB',
+						family: 'Nunito',
+						style: 'normal',
+						weight: 'bold',
+						height: 'normal',
+						size: '72px',
+						// position: 'absolute',
+						// width: '314px',
+						// height: '135px',
+						// left: '563px',
+						// top: '328px',
+					}}
+				>
+					wrapped.
+				</h1>
+				<Container2>
+					<form onSubmit={this.onSubmit}>
+						<input
+							name="email"
+							value={email}
+							onChange={this.onChange}
+							type="text"
+							placeholder="Email"
+						/>
+						<input
+							name="password"
+							value={password}
+							onChange={this.onChange}
+							type="password"
+						/>
+						<button disabled={isInvalid} type="submit">
+							Sign In
+						</button>
 
-          <p>
-            Don't have an account?{' '}
-            <Link href={ROUTES.SIGN_UP.path}>{ROUTES.SIGN_UP.text}</Link>
-          </p>
-          <p>
-            Forgot your Password?{' '}
-            <Link href={ROUTES.FORGOT_PASSWORD.path}>
-              {ROUTES.FORGOT_PASSWORD.text}
-            </Link>
-          </p>
-          {error && <p>{error.message}</p>}
-        </form>
-      </Container>
-    );
-  }
+						<p>
+							Don't have an account?{' '}
+							<Link href={ROUTES.SIGN_UP.path}>
+								{ROUTES.SIGN_UP.text}
+							</Link>
+						</p>
+						<p>
+							Forgot your Password?{' '}
+							<Link href={ROUTES.FORGOT_PASSWORD.path}>
+								{ROUTES.FORGOT_PASSWORD.text}
+							</Link>
+						</p>
+						{error && <p>{error.message}</p>}
+					</form>
+				</Container2>
+			</Container>
+		);
+	}
 }
 
 export default withFirebase(Signin);
