@@ -67,7 +67,6 @@ class Signin extends Component {
             onChange={this.onChange}
             type="password"
           />
-
           <button disabled={isInvalid} type="submit">
             Sign In
           </button>
