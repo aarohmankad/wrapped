@@ -11,7 +11,7 @@ const List = styled.ul`
   float: right;
   & > li {
     display: inline;
-    margin: 20px;
+    margin: 50px;
     font-size: 28px;
     font-weight: bold;
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import router from 'next/router';
 import styled from 'styled-components';
 
+import ActionButton from '../components/Button/ActionButton';
+import Input from '../components/Input';
 import Link from '../components/Link';
 import Navigation from '../components/Navigation';
 import ROUTES from '../constants/ROUTES';
@@ -18,10 +20,23 @@ const Container = styled.div`
 	height: 100vh;
 	background-image: url(/static/login_background.jpg);
 	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	& input {
+		width: 100%;
+	}
 `;
 
-const Container2 = styled.div`
-	text-align: center;
+const Header = styled.h1`
+	color: ${({ theme }) => theme.white};
+	font-family: 'Nunito', sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-height: normal;
+	font-size: 48px;
 `;
 
 class Signin extends Component {
@@ -54,60 +69,38 @@ class Signin extends Component {
 		const isInvalid = password === '' || email === '';
 
 		return (
-			<Container>
+			<div>
 				<Navigation />
-				<h1
-					style={{
-						color: '#FFFFFB',
-						family: 'Nunito',
-						style: 'normal',
-						weight: 'bold',
-						height: 'normal',
-						size: '72px',
-						// position: 'absolute',
-						// width: '314px',
-						// height: '135px',
-						// left: '563px',
-						// top: '328px',
-					}}
-				>
-					wrapped.
-				</h1>
-				<Container2>
+				<Container>
+					<Header>wrapped.</Header>
 					<form onSubmit={this.onSubmit}>
-						<input
+						<Input
 							name="email"
 							value={email}
 							onChange={this.onChange}
 							type="text"
 							placeholder="Email"
 						/>
-						<input
+						<Input
 							name="password"
 							value={password}
 							onChange={this.onChange}
 							type="password"
 						/>
-						<button disabled={isInvalid} type="submit">
+						<ActionButton disabled={isInvalid} type="submit">
 							Sign In
-						</button>
-
-						<p>
-							Don't have an account?{' '}
-							<Link href={ROUTES.SIGN_UP.path}>
-								{ROUTES.SIGN_UP.text}
-							</Link>
-						</p>
-						<p>
-							Forgot your Password?{' '}
-							<Link href={ROUTES.FORGOT_PASSWORD.path}>
-								{ROUTES.FORGOT_PASSWORD.text}
-							</Link>
-						</p>
-						{error && <p>{error.message}</p>}
+						</ActionButton>
 					</form>
-				</Container2>
-			</Container>
+
+					<Link href={ROUTES.SIGN_UP.path}>
+						{ROUTES.SIGN_UP.text}.
+					</Link>
+					<Link href={ROUTES.FORGOT_PASSWORD.path}>
+						{ROUTES.FORGOT_PASSWORD.text}
+					</Link>
+					{error && <p>{error.message}</p>}
+				</Container>
+			</div>
 		);
 	}
 }
