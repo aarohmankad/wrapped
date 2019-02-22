@@ -14,9 +14,9 @@ const INITIAL_STATE = {
   error: null,
 };
 
-const img = styled.img`
-  width: 10px;
-  height 10px;
+const Logo = styled.img`
+  width: 75px;
+  height 75px;
 `;
 
 const Container = styled.div`
@@ -75,7 +75,7 @@ class Signin extends Component {
     return (
       <div>
         <Navigation />
-        <img src="../static/wrapped_logo.png" alt="wrapped_logo" />
+        <Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
         <Container>
           <Header>wrapped.</Header>
           <form onSubmit={this.onSubmit}>
