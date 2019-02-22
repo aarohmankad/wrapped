@@ -36,7 +36,7 @@ const Header = styled.h1`
 	font-style: normal;
 	font-weight: bold;
 	font-height: normal;
-	font-size: 48px;
+	font-size: 72px;
 `;
 
 class Signin extends Component {
@@ -79,13 +79,14 @@ class Signin extends Component {
 							value={email}
 							onChange={this.onChange}
 							type="text"
-							placeholder="Email"
+							placeholder="email"
 						/>
 						<Input
 							name="password"
 							value={password}
 							onChange={this.onChange}
 							type="password"
+							placeholder="password"
 						/>
 						<ActionButton disabled={isInvalid} type="submit">
 							Sign In

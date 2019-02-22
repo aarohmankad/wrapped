@@ -9,9 +9,12 @@ const StyledActionButton = styled.button`
   color: ${({ theme }) => theme.pink};
   font-size: 24px;
   font-weight: bold;
-  margin: 10px;
   padding: 20px;
   width: 300px;
+  margin: 0 auto;
+  margin-top: 22px;
+  margin-bottom: 11px;
+  display: block;
 `;
 
 const ActionButton = props => (
