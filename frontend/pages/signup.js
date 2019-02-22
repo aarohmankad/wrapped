@@ -28,7 +28,10 @@ class Signup extends Component {
     const { username, email, password } = this.state;
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, password)
-      .then(authUser => {
+      .then(authUser =>
+        this.props.firebase.user(authUser.user.uid).set({ username, email })
+      )
+      .then(() => {
         this.setState({ ...INITIAL_STATE });
         router.push(ROUTES.HOME.path);
       })
@@ -57,7 +60,7 @@ class Signup extends Component {
             value={username}
             onChange={this.onChange}
             type="text"
-            placeholder="Full Name"
+            placeholder="Username"
           />
           <input
             name="email"
@@ -76,7 +79,7 @@ class Signup extends Component {
             name="confirmPassword"
             value={confirmPassword}
             onChange={this.onChange}
-            type="text"
+            type="password"
           />
 
           <button disabled={isInvalid} type="submit">
