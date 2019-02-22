@@ -10,7 +10,7 @@ const StyledInput = styled.input`
   padding: 5px;
   margin: 5px;
   max-width: 400px;
-  max-heigh: 40px;
+  max-height: 40px;
   padding-left: 10px;
   &::placeholder {
     color: ${({ theme }) => theme.white};
