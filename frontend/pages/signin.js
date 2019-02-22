@@ -17,6 +17,10 @@ const INITIAL_STATE = {
 const Logo = styled.img`
   width: 75px;
   height 75px;
+  position: absolute;
+  z-index: 10;
+  top: 25px;
+  left: 25px;
 `;
 
 const Container = styled.div`
