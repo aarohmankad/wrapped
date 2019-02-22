@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import router from 'next/router';
 import styled from 'styled-components';
-
 import ActionButton from '../components/Button/ActionButton';
 import Input from '../components/Input';
 import Link from '../components/Link';
@@ -14,6 +13,11 @@ const INITIAL_STATE = {
 	password: '',
 	error: null,
 };
+
+const img = styled.img`
+	width: 10px;
+	height 10px;
+`;
 
 const Container = styled.div`
 	width: 100vw;
@@ -71,6 +75,7 @@ class Signin extends Component {
 		return (
 			<div>
 				<Navigation />
+				<img src="../static/wrapped_logo.png" alt="wrapped_logo" />
 				<Container>
 					<Header>wrapped.</Header>
 					<form onSubmit={this.onSubmit}>
