@@ -14,9 +14,9 @@ const INITIAL_STATE = {
 	error: null,
 };
 
-const img = styled.img`
-	width: 10px;
-	height 10px;
+const Logo = styled.img`
+  width: 75px;
+  height 75px;
 `;
 
 const Container = styled.div`
@@ -72,31 +72,31 @@ class Signin extends Component {
 
 		const isInvalid = password === '' || email === '';
 
-		return (
-			<div>
-				<Navigation />
-				<img src="../static/wrapped_logo.png" alt="wrapped_logo" />
-				<Container>
-					<Header>wrapped.</Header>
-					<form onSubmit={this.onSubmit}>
-						<Input
-							name="email"
-							value={email}
-							onChange={this.onChange}
-							type="text"
-							placeholder="email"
-						/>
-						<Input
-							name="password"
-							value={password}
-							onChange={this.onChange}
-							type="password"
-							placeholder="password"
-						/>
-						<ActionButton disabled={isInvalid} type="submit">
-							Sign In
-						</ActionButton>
-					</form>
+    return (
+      <div>
+        <Navigation />
+        <Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
+        <Container>
+          <Header>wrapped.</Header>
+          <form onSubmit={this.onSubmit}>
+            <Input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="email"
+            />
+            <Input
+              name="password"
+              value={password}
+              onChange={this.onChange}
+              type="password"
+              placeholder="password"
+            />
+            <ActionButton disabled={isInvalid} type="submit">
+              Sign In
+            </ActionButton>
+          </form>
 
           <p>
             Don't have an account?{' '}
