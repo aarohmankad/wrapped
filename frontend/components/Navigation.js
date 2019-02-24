@@ -20,7 +20,7 @@ const List = styled.ul`
     font-weight: bold;
 
     & > a {
-      color: black;
+      color: ${({ theme }) => theme.grey};
       text-decoration: none;
 
       &:hover {
