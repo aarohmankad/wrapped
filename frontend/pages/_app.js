@@ -10,6 +10,7 @@ import store from "../redux/store";
 const theme = {
   navy: "#323759",
   grey: "#343434",
+  lt_grey: "#8f91a4",
   blue: "#2ec0f9",
   lt_blue: "#8ddcfb",
   white: "#fffffb",
