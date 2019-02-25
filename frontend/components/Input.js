@@ -6,11 +6,11 @@ const StyledInput = styled.input`
   background: ${({ theme }) => transparentize(0.75, theme.white)};
   border: none;
   color: ${({ theme }) => theme.white};
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px;
   margin: 5px;
   max-width: 400px;
-  max-height: 40px;
+  max-heigh: 40px;
   padding-left: 10px;
   &::placeholder {
     color: ${({ theme }) => theme.white};
