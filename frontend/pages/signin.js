@@ -84,7 +84,7 @@ class Signin extends Component {
 				<Container>
 					<Header>wrapped.</Header>
 					<form onSubmit={this.onSubmit}>
-						<Input1
+						<Input
 							name="email"
 							value={email}
 							onChange={this.onChange}
