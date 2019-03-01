@@ -17,9 +17,17 @@ const Logo = styled.img`
   left: 25px;
 `;
 
+// ask Aaroh why this is wrong and why i need to call it "logo2"
+// const profile_image = styled.img`
+// 	width: 75px;
+//   	height 75px;
+//   	position: absolute;
+// `;
+
 const Logo2 = styled.img`
-	width: 150px;
-	height 80px;
+	width: 273px;
+	height: 364px;
+	border-radius: 50%;
 `;
 
 const Description = styled.p`
@@ -33,16 +41,10 @@ const Description2 = styled.p`
 	right: 25px;
 `;
 
-const Team = styled.img`
-	top: 25px;
-	left: 25px;
-`;
-
 const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
-	background-image: url(/static/login_background.jpg);
-	background-size: cover;
+	background-color: ${({ theme }) => theme.pink};
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -58,7 +60,7 @@ const Section = styled.h1`
 	color: ${({ theme }) => theme.white};
 	font-family: 'Nunito', sans-serif;
 	text-align: center;
-	font-size: 72px;
+	font-size: 50px;
 `;
 
 const Home = props => {
@@ -86,11 +88,12 @@ const Home = props => {
 				</Description>
 				<Section>Why wrapped?</Section>
 				<Description2>
-					<Logo2 src="../static/amazon.jpg" alt="amazon_logo" />
+					{/*<Logo2 src="../static/amazon.jpg" alt="amazon_logo" />*/}
 					75% of online shoppers use Amazon.
 				</Description2>
 				<Section>Team</Section>
 				<Description>Insert Team images here</Description>
+				{/*<Logo2 src="../static/alex.jpg" alt="alex.jpg" />*/}
 			</Container>
 		</div>
 	);
