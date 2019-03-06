@@ -31,19 +31,14 @@ const Logo = styled.img`
 // `;
 
 const Intro_Description = styled.p`
-	position: absolute;
 	width: 1086px;
-	height 342px;
-	left: 179px;
-	top: 491px;
 	font-family: Nunito;
 	font-style: normal;
 	font-weight: normal;
 	line-height: normal;
 	font-size: 36px;
 	text-align: center;
-	color: #FFFFFC;
-	position: fixed;
+	color: #fffffc;
 `;
 
 // const whatis_description = styled.p`
@@ -67,7 +62,7 @@ const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: ${({ theme }) => theme.pink};
-	// background-size: cover;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -82,10 +77,6 @@ const Container = styled.div`
 `;
 
 const Intro = styled.h1`
-	width: 665px;
-	height: 211px;
-	left: 388px;
-	top: 280px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -95,23 +86,16 @@ const Intro = styled.h1`
 	font-weight: bold;
 	line-height: normal;
 	font-size: 144px;
-	position: fixed;
 
 	color: ${({ theme }) => theme.white};
 `;
 
 const maple = styled.h1`
-	// position: absolute;
-	// width: 912px;
-	// height: 166px;
-	// left: 453px;
-	// top: 271px;
-
-	// font-family: Nunito;
-	// font-style: normal;
-	// font-weight: bold;
-	// line-height: normal;
-	// font-size: 110px;
+	font-family: Nunito;
+	font-style: normal;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 110px;
 
 	color: ${({ theme }) => theme.white};
 `;
@@ -125,9 +109,8 @@ const Home = props => {
 				<Intro>
 					wrapped.
 					<Intro_Description>
-						At wrapped, our goal is to make it easy for you to show
-						appreciation for your loved ones with the perfect gift,
-						every time.
+						At wrapped, our goal is to make it easy for you to show appreciation
+						for your loved ones with the perfect gift, every time.
 					</Intro_Description>
 				</Intro>
 				<maple>
