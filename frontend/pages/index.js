@@ -17,19 +17,6 @@ const Logo = styled.img`
   left: 25px;
 `;
 
-// ask Aaroh why this is wrong and why i need to call it "logo2"
-// const profile_image = styled.img`
-// 	width: 75px;
-//   	height 75px;
-//   	position: absolute;
-// `;
-
-// const Logo2 = styled.img`
-// 	width: 273px;
-// 	height: 364px;
-// 	border-radius: 50%;
-// `;
-
 const Intro_Description = styled.p`
 	width: 1086px;
 	font-family: Nunito;
@@ -40,23 +27,6 @@ const Intro_Description = styled.p`
 	text-align: center;
 	color: #fffffc;
 `;
-
-// const whatis_description = styled.p`
-// 	position: absolute;
-// 	width: 1086px;
-// 	height: 342px;
-// 	left: 270px;
-// 	top: 437px;
-
-// 	font-family: Nunito;
-// 	font-style: normal;
-// 	font-weight: normal;
-// 	line-height: normal;
-// 	font-size: 36px;
-// 	text-align: right;
-
-// 	color: #fffffc;
-// `;
 
 const Container = styled.div`
 	width: 100vw;
@@ -96,7 +66,11 @@ const maple = styled.h1`
 	font-weight: bold;
 	line-height: normal;
 	font-size: 110px;
+	color: ${({ theme }) => theme.white};
+`;
 
+const whatis_description = styled.p`
+	font-family: Nunito;
 	color: ${({ theme }) => theme.white};
 `;
 
@@ -109,18 +83,19 @@ const Home = props => {
 				<Intro>
 					wrapped.
 					<Intro_Description>
-						At wrapped, our goal is to make it easy for you to show appreciation
-						for your loved ones with the perfect gift, every time.
+						At wrapped, our goal is to make it easy for you to show
+						appreciation for your loved ones with the perfect gift,
+						every time.
 					</Intro_Description>
 				</Intro>
 				<maple>
 					what is wrapped?
-					{/*<whatis_description>
+					<whatis_description>
 						wrapped. is a web application that helps you find the
 						perfect gift for your loved ones. We remind you when to
 						purchase your gift with emails, and help you manage all
 						the gifts you need to buy for any occasion!
-					</whatis_description>*/}
+					</whatis_description>
 				</maple>
 				{/*
 				<Section>Why wrapped?</Section>
