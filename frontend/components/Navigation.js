@@ -8,7 +8,7 @@ import ROUTES from '../constants/ROUTES';
 
 const List = styled.ul`
   // position: absolute;
-  position: sticky;
+  position: fixed;
   z-index: 10;
   top: 18px;
   right: 0px;
