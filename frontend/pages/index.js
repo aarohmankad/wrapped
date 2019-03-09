@@ -24,32 +24,12 @@ const Container = styled.div`
 	background-size: cover;
 
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	// flex-direction: column;
+	// justify-content: center;
+	// align-items: center;
 
-	// top: -2px;
-	& input {
-		width: 100%;
-	}
-	overflow: scroll;
-	position: overflow;
-`;
-
-const align_right = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	align-items: flex-end;
-`;
-
-const align_left = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	align-items: flex-end;
+	position: static;
+	border: 3px solid #73ad21;
 `;
 
 const Intro = styled.h1`
@@ -57,6 +37,11 @@ const Intro = styled.h1`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	//used this so that it would align in the middle with justify content
+	width: 100vw;
+	height: auto
+
 	font-family: Nunito;
 	font-style: normal;
 	font-weight: bold;
@@ -68,21 +53,22 @@ const Intro = styled.h1`
 
 const Intro_Description = styled.p`
 	width: 1086px;
+
 	font-family: Nunito;
-	font-style: normal;
-	font-weight: normal;
-	line-height: normal;
 	font-size: 36px;
 	text-align: center;
 	color: #fffffc;
 `;
 
 const Intro2 = styled.h1`
-	font-family: Nunito;
 	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	//used this so that it would align in the middle with justify content
+	width: 100vw;
+
+	font-family: Nunito;
 	font-style: normal;
 	flex-wrap: wrap;
 	font-weight: bold;
@@ -92,21 +78,24 @@ const Intro2 = styled.h1`
 `;
 
 const Intro2_Description = styled.p`
-	font-family: Nunito;
 	width: 1086px;
-	color: ${({ theme }) => theme.white};
+	font-family: Nunito;
 	font-size: 36px;
+	color: ${({ theme }) => theme.white};
 	text-align: right;
-	// height: 342px;
+	color: #fffffc;
 `;
 
 const Intro3 = styled.h1`
-	font-family: Nunito;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+
+	width: 100vw;
+	font-family: Nunito;
 	font-style: normal;
+	flex-wrap: wrap;
 	font-weight: bold;
 	line-height: normal;
 	font-size: 110px;
@@ -114,10 +103,42 @@ const Intro3 = styled.h1`
 `;
 
 const Intro3_Description = styled.p`
+	width: 1086px;
 	font-family: Nunito;
-	text-align: left;
-	font-size: 100px
+	font-size: 36px;
 	color: ${({ theme }) => theme.white};
+	text-align: left;
+	color: #fffffc;
+`;
+
+const listStyle = styled.li`
+	list-style-type: none;
+
+	&:before {
+		content: '-';
+	}
+`;
+
+const Section = styled.h1`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 100vw;
+	font-family: Nunito;
+	font-style: normal;
+	flex-wrap: wrap;
+	font-weight: bold;
+	line-height: normal;
+	font-size: 110px;
+	color: ${({ theme }) => theme.white};
+`;
+const Logo2 = styled.img`
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	background: #8ddcfb;
 `;
 
 const Home = props => {
@@ -127,40 +148,48 @@ const Home = props => {
 			<Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
 
 			<Container>
-				<Intro>wrapped. </Intro>
-				<Intro_Description>
-					At wrapped, our goal is to make it easy for you to show
-					appreciation for your loved ones with the perfect gift,
-					every time.
-				</Intro_Description>
+				<Intro>
+					wrapped.
+					<Intro_Description>
+						At wrapped, our goal is to make it easy for you to show
+						appreciation for your loved ones with the perfect gift,
+						every time.
+					</Intro_Description>
+				</Intro>
 			</Container>
-
 			<Container>
-				<align_right>
-					<Intro2>what is wrapped? </Intro2>
+				<Intro2>
+					what is wrapped?
 					<Intro2_Description>
 						wrapped is a web application that helps you find the
 						perfect gift for your loved ones. We remind you when to
 						purchase your gift with emails, and help you manage all
 						the gifts you need to buy for any occasion!
 					</Intro2_Description>
-				</align_right>
+				</Intro2>
+			</Container>
+			<Container>
+				<Intro3>
+					why wrapped?
+					<Intro3_Description>
+						<listStyle>
+							<li>75% of online shoppers use Amazon. </li>
+							<li>53% are last minute shoppers</li>
+							<li>
+								52% of shoppers prefer guarenteed dates over
+								free shipping
+							</li>
+						</listStyle>
+					</Intro3_Description>
+				</Intro3>
 			</Container>
 
 			<Container>
-				<align_left>
-					<Intro3>why wrapped? </Intro3>
-					<Intro3_Description>
-						75% of online shoppers use Amazon.
-					</Intro3_Description>
-				</align_left>
+				<Section>
+					team.
+					<Logo2 src="../static/alex.jpg" alt="alex.jpg" />
+				</Section>
 			</Container>
-
-			{/*<Container>
-				<Section>Team</Section>
-				<Description>Insert Team images here</Description>
-				<Logo2 src="../static/alex.jpg" alt="alex.jpg" />
-			</Container>*/}
 		</div>
 	);
 };
