@@ -38,8 +38,16 @@ class CreateEvent extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-  onChange = event =>
+  onChange = event => {
+    if (event.target.name === 'ideas') {
+      this.setState({
+        [event.target.name]: event.target.value.split(','),
+      });
+      return;
+    }
+
     this.setState({ [event.target.name]: event.target.value });
+  };
 
   onSubmit = event => {
     // console.log(this.props.user);
@@ -87,6 +95,13 @@ class CreateEvent extends Component {
               value={date}
               onChange={this.onChange}
               type="date"
+            />
+
+            <textarea
+              name="ideas"
+              value={ideas.join(',')}
+              onChange={this.onChange}
+              placeholder="Do You Have Any Ideas?"
             />
 
             <button disabled={isInvalid} type="submit">
