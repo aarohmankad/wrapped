@@ -17,8 +17,6 @@ class Account extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-
     this.state = {
       ...INITIAL_STATE,
       email: props.user.email,
@@ -57,8 +55,6 @@ class Account extends Component {
   render() {
     const { user } = this.props;
     const { email, passwordOne, passwordTwo, error } = this.state;
-
-    console.log(error);
 
     const emailNotModified = email === user.email;
     const passwordNotModified =
