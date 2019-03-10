@@ -1,3 +1,7 @@
+import React from 'react';
+
+import EventListItem from './EventListItem';
+
 const EventList = ({ loading, events }) => {
   if (loading) {
     return <p>...</p>;
@@ -7,12 +11,10 @@ const EventList = ({ loading, events }) => {
     return <p>Make someone's day!</p>;
   }
 
-  console.log(events);
-
   return (
     <div>
       {events.map(event => (
-        <p key={event.uid}>Event</p>
+        <EventListItem key={event.key} event={event} />
       ))}
     </div>
   );

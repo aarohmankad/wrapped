@@ -36,9 +36,13 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(user =>
-      store.dispatch(authStateChanged(user))
-    );
+    firebase.auth.onAuthStateChanged(user => {
+      firebase
+        .user(user.uid)
+        .on('value', snapshot =>
+          store.dispatch(authStateChanged({ ...user, ...snapshot.val() }))
+        );
+    });
   }
 
   render() {

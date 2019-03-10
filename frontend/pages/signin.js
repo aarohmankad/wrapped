@@ -63,7 +63,7 @@ class Signin extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
-        router.push(ROUTES.HOME.path);
+        router.push(ROUTES.DASHBOARD.path);
       })
       .catch(error => {
         this.setState({ error });
