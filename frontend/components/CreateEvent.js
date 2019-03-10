@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 import styled, { withTheme } from 'styled-components';
 
 import ActionButton from './Button/ActionButton';
+import email from '../services/email';
 import { withFirebase } from '../components/Firebase';
 import Input from './Input';
 import Textarea from './Textarea';
@@ -14,7 +15,7 @@ const INITIAL_STATE = {
   date: '',
   ideas: [],
   reminder: '',
-  modalIsOpen: true,
+  modalIsOpen: false,
 };
 
 const CreateEventButton = styled.div`
@@ -103,7 +104,6 @@ class CreateEvent extends Component {
   };
 
   onSubmit = e => {
-    // console.log(this.props.user);
     const { name, date, ideas, reminder } = this.state;
     const event = {
       name,
@@ -114,6 +114,7 @@ class CreateEvent extends Component {
     };
 
     this.props.firebase.events().push(event);
+    email.schedule({ ...event, gifter: this.props.user.email });
     this.setState({ ...INITIAL_STATE });
     this.closeModal();
   };
