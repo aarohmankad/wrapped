@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-// background: #ffa9f0;
 const StyledInput = styled.input`
   background: ${({ theme }) => transparentize(0.75, theme.white)};
   border: none;
@@ -10,7 +9,9 @@ const StyledInput = styled.input`
   font-size: 18px;
   padding: 5px;
   margin: 5px;
-
+  max-width: 400px;
+  max-heigh: 40px;
+  padding-left: 10px;
   &::placeholder {
     color: ${({ theme }) => theme.white};
   }
