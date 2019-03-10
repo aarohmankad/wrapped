@@ -13,7 +13,8 @@ const INITIAL_STATE = {
   name: '',
   date: '',
   ideas: [],
-  modalIsOpen: false,
+  reminder: '',
+  modalIsOpen: true,
 };
 
 const CreateEventButton = styled.div`
@@ -101,22 +102,25 @@ class CreateEvent extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onSubmit = event => {
+  onSubmit = e => {
     // console.log(this.props.user);
-    const { name, date, ideas } = this.state;
-    this.props.firebase.events().push({
+    const { name, date, ideas, reminder } = this.state;
+    const event = {
       name,
       date,
       ideas,
+      reminder,
       createdBy: this.props.user.uid,
-    });
+    };
+
+    this.props.firebase.events().push(event);
     this.setState({ ...INITIAL_STATE });
     this.closeModal();
   };
 
   render() {
-    const { name, date, ideas } = this.state;
-    const isInvalid = !name || !date;
+    const { name, date, ideas, reminder } = this.state;
+    const isInvalid = !name || !date || !reminder;
 
     return (
       <div>
@@ -166,6 +170,18 @@ class CreateEvent extends Component {
                 value={ideas.join(',')}
                 onChange={this.onChange}
                 placeholder="A Dash of This, A Sprinkle of That"
+                color={this.props.theme.grey}
+                border={`1px solid ${this.props.theme.grey}`}
+                spacing="none"
+                width="100%"
+              />
+
+              <label htmlFor="reminder">When Would You Like A Reminder?</label>
+              <Input
+                name="reminder"
+                value={reminder}
+                onChange={this.onChange}
+                type="date"
                 color={this.props.theme.grey}
                 border={`1px solid ${this.props.theme.grey}`}
                 spacing="none"
