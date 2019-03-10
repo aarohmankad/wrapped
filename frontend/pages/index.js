@@ -17,7 +17,7 @@ const Logo = styled.img`
 `;
 
 const Title2 = styled.div`
-	color: blue;
+	color: white;
 `;
 
 const Container = styled.div`
@@ -54,8 +54,8 @@ const Home = props => {
 			<Container>
 				<Title>wrapped.</Title>
 				<Title2>
-					At wrapped, our goal is to make it easy for you to show
-					appreciation for your loved ones with the perfect gift.
+					At wrapped, our goal is to make it easy for you to show appreciation
+					for your loved ones with the perfect gift.
 				</Title2>
 			</Container>
 		</div>
