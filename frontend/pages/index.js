@@ -128,17 +128,24 @@ const Section = styled.h1`
 	width: 100vw;
 	font-family: Nunito;
 	font-style: normal;
-	flex-wrap: wrap;
 	font-weight: bold;
 	line-height: normal;
 	font-size: 110px;
 	color: ${({ theme }) => theme.white};
 `;
+
+const pictures = styled.div`
+	display flex:
+	flex-direction: row;
+`;
+
 const Logo2 = styled.img`
+	display: flex;
+	flex-direction: column;
 	border-radius: 50%;
 	width: 300px;
 	height: 300px;
-	background: #8ddcfb;
+	6background: #8ddcfb;
 `;
 
 const Home = props => {
@@ -187,7 +194,10 @@ const Home = props => {
 			<Container>
 				<Section>
 					team.
-					<Logo2 src="../static/alex.jpg" alt="alex.jpg" />
+					<picutres>
+						<Logo2 src="../static/alex.jpg" alt="alex.jpg" />
+						{/*<Logo2 src="../static/aaroh.png" alt="alex.jpeg" />*/}
+					</picutres>
 				</Section>
 			</Container>
 		</div>
