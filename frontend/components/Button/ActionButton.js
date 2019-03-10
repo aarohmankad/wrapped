@@ -18,7 +18,7 @@ const StyledActionButton = styled.button`
 `;
 
 const ActionButton = props => (
-  <StyledActionButton>{props.children}</StyledActionButton>
+  <StyledActionButton {...props}>{props.children}</StyledActionButton>
 );
 
 export default ActionButton;

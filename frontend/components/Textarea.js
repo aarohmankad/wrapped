@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-const StyledInput = styled.input`
+const StyledInput = styled.textarea`
   background: ${({ theme, background }) =>
     background || transparentize(0.75, theme.white)};
   border: ${({ border }) => border || 'none'};

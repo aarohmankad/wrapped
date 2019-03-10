@@ -7,7 +7,7 @@ import ROUTES from '../constants/ROUTES';
 import { withFirebase } from '../components/Firebase';
 
 const INITIAL_STATE = {
-  username: '',
+  name: '',
   email: '',
   password: '',
   confirmPassword: '',
@@ -25,11 +25,11 @@ class Signup extends Component {
     this.setState({ [event.target.name]: event.target.value });
 
   onSubmit = event => {
-    const { username, email, password } = this.state;
+    const { name, email, password } = this.state;
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, password)
       .then(authUser =>
-        this.props.firebase.user(authUser.user.uid).set({ username, email })
+        this.props.firebase.user(authUser.user.uid).set({ email, name })
       )
       .then(() => {
         this.setState({ ...INITIAL_STATE });
@@ -42,13 +42,13 @@ class Signup extends Component {
   };
 
   render() {
-    const { username, email, password, confirmPassword, error } = this.state;
+    const { name, email, password, confirmPassword, error } = this.state;
 
     const isInvalid =
       password !== confirmPassword ||
       password === '' ||
       email === '' ||
-      username === '';
+      name === '';
 
     return (
       <div>
@@ -56,11 +56,11 @@ class Signup extends Component {
         <h1>Sign up</h1>
         <form onSubmit={this.onSubmit}>
           <input
-            name="username"
-            value={username}
+            name="name"
+            value={name}
             onChange={this.onChange}
             type="text"
-            placeholder="Username"
+            placeholder="Name"
           />
           <input
             name="email"

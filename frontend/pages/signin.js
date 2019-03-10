@@ -58,19 +58,19 @@ class Signin extends Component {
 	onChange = event =>
 		this.setState({ [event.target.name]: event.target.value });
 
-	onSubmit = event => {
-		const { email, password } = this.state;
-		this.props.firebase
-			.doSignInWithEmailAndPassword(email, password)
-			.then(authUser => {
-				this.setState({ ...INITIAL_STATE });
-				router.push(ROUTES.HOME.path);
-			})
-			.catch(error => {
-				this.setState({ error });
-			});
-		event.preventDefault();
-	};
+  onSubmit = event => {
+    const { email, password } = this.state;
+    this.props.firebase
+      .doSignInWithEmailAndPassword(email, password)
+      .then(authUser => {
+        this.setState({ ...INITIAL_STATE });
+        router.push(ROUTES.DASHBOARD.path);
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+    event.preventDefault();
+  };
 
 	render() {
 		const { email, password, error } = this.state;
