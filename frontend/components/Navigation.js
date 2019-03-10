@@ -7,7 +7,6 @@ import SignoutButton from './Button/SignoutButton';
 import ROUTES from '../constants/ROUTES';
 
 const List = styled.ul`
-  // position: absolute;
   position: fixed;
   z-index: 10;
   top: 18px;
