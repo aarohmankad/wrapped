@@ -8,6 +8,10 @@ import Navigation from '../components/Navigation';
 //ex was like for a header. can use h1 h2 etc..
 //but can put it in a div and style it to be the size, position etc.
 
+//Known Bugs:
+//when changing the browser resolution, the page does not scale with it.
+// but signin.js does
+
 const Logo = styled.img`
   width: 75px;
   height 75px;
@@ -20,16 +24,17 @@ const Logo = styled.img`
 const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
-	background-color: ${({ theme }) => theme.pink};
+	background-image: url(/static/pink.jpg);
+	// background-color: #a0839b;
 	background-size: cover;
-
 	display: flex;
-	// flex-direction: column;
-	// justify-content: center;
-	// align-items: center;
 
-	position: static;
-	border: 3px solid #73ad21;
+	& input {
+		width: 100%;
+	}
+
+	// position: sticky;
+	// border: 3px solid #73ad21;
 `;
 
 const Intro = styled.h1`
@@ -67,6 +72,7 @@ const Intro2 = styled.h1`
 	align-items: flex-end;
 	//used this so that it would align in the middle with justify content
 	width: 100vw;
+	padding-right: 84px;
 
 	font-family: Nunito;
 	font-style: normal;
@@ -91,6 +97,7 @@ const Intro3 = styled.h1`
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	padding-left: 124px;
 
 	width: 100vw;
 	font-family: Nunito;
@@ -111,21 +118,21 @@ const Intro3_Description = styled.p`
 	color: #fffffc;
 `;
 
-const listStyle = styled.li`
+const ListStyle = styled.li`
 	list-style-type: none;
 
-	&:before {
-		content: '-';
+	li:before {
+		content: '- ';
 	}
 `;
 
-const Section = styled.h1`
+const Intro4 = styled.h1`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 	width: 100vw;
+
 	font-family: Nunito;
 	font-style: normal;
 	font-weight: bold;
@@ -134,18 +141,45 @@ const Section = styled.h1`
 	color: ${({ theme }) => theme.white};
 `;
 
-const pictures = styled.div`
-	display flex:
+const SelfieContainer = styled.div`
+	display: flex;
 	flex-direction: row;
+	justify-content: flex-end;
+	padding-top: 110px;
 `;
 
-const Logo2 = styled.img`
-	display: flex;
-	flex-direction: column;
+const Selfie = styled.img`
 	border-radius: 50%;
 	width: 300px;
 	height: 300px;
-	6background: #8ddcfb;
+	background: #8ddcfb;
+	display: flex;
+	margin-left: 100px;
+	margin-right: 100px;
+	flex-wrap: wrap;
+`;
+
+const Personal_Links = styled.div`
+	display: flex;
+	font-size: 50px;
+	text-align: left;
+`;
+
+const Team = styled.div`
+	text-align: center;
+	font-size: 25px;
+	color: ${({ theme }) => theme.white};
+`;
+
+const Social = styled.div`
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 12px;
+`;
+
+const Name = styled.div`
+	margin-top: 38px;
 `;
 
 const Home = props => {
@@ -153,7 +187,6 @@ const Home = props => {
 		<div>
 			<Navigation />
 			<Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
-
 			<Container>
 				<Intro>
 					wrapped.
@@ -179,26 +212,128 @@ const Home = props => {
 				<Intro3>
 					why wrapped?
 					<Intro3_Description>
-						<listStyle>
+						<ListStyle>
 							<li>75% of online shoppers use Amazon. </li>
 							<li>53% are last minute shoppers</li>
 							<li>
 								52% of shoppers prefer guarenteed dates over
 								free shipping
 							</li>
-						</listStyle>
+						</ListStyle>
 					</Intro3_Description>
 				</Intro3>
 			</Container>
 
 			<Container>
-				<Section>
+				<Intro4>
 					team.
-					<picutres>
-						<Logo2 src="../static/alex.jpg" alt="alex.jpg" />
-						{/*<Logo2 src="../static/aaroh.png" alt="alex.jpeg" />*/}
-					</picutres>
-				</Section>
+					<SelfieContainer>
+						<Team>
+							<Selfie
+								src="../static/natasha.jpg"
+								alt="natasha.jpeg"
+							/>
+							<Name>Natasha Orie</Name>
+							<Social>
+								<a
+									href="https://www.linkedin.com/in/alexte/"
+									target="_blank"
+								>
+									web
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									git
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									in
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									twit
+								</a>
+							</Social>
+						</Team>
+						<Team>
+							<Selfie
+								src="../static/aaroh.png"
+								alt="aaroh.jpeg"
+							/>
+							<Name>Aaroh Mankad</Name>
+							<Social>
+								<a
+									href="https://www.linkedin.com/in/alexte/"
+									target="_blank"
+								>
+									web
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									git
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									in
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									twit
+								</a>
+							</Social>
+						</Team>
+						<Team>
+							<Selfie src="../static/alex.jpg" alt="alex.jpg" />
+							<Name>Alex Te</Name>
+							<Social>
+								<a
+									href="https://www.linkedin.com/in/alexte/"
+									target="_blank"
+								>
+									web
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									git
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									in
+								</a>
+								<a
+									href="https://www.google.com/"
+									target="_blank"
+								>
+									twit
+								</a>
+							</Social>
+						</Team>
+					</SelfieContainer>
+					{/*<Personal_Links>
+						<a
+							href="https://www.linkedin.com/in/alexte/"
+							target="_blank"
+						>
+							<i class="fab fa-linkedin" />
+						</a>
+					</Personal_Links>*/}
+				</Intro4>
 			</Container>
 		</div>
 	);

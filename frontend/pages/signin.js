@@ -45,7 +45,7 @@ const Header = styled.h1`
 	font-weight: bold;
 	font-height: normal;
 	font-size: 72px;
-	width: 300px;
+	// width: 300px;
 `;
 
 class Signin extends Component {
