@@ -27,13 +27,15 @@ const Container = styled.div`
 	background-image: url(/static/pink.jpg);
 	// background-color: #a0839b;
 	background-size: cover;
+
 	display: flex;
 
 	& input {
 		width: 100%;
 	}
 
-	// position: sticky;
+	// position: scroll;
+	overflow: hidden;
 	// border: 3px solid #73ad21;
 `;
 
@@ -174,17 +176,43 @@ const Team = styled.div`
 const Social = styled.div`
 	text-align: center;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	margin-top: 12px;
+	width: 300px;
+	padding-left: 97px;
+	margin-top: 20px;
+	font-size: 40px;
+	color: white;
 `;
 
 const Name = styled.div`
 	margin-top: 38px;
 `;
 
+const Bottle = styled.img`
+	color: white;
+`;
+
+const Footer = styled.div`
+	position: sticky;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 130px;
+`;
+
 const Home = props => {
 	return (
 		<div>
+			<link
+				rel="stylesheet"
+				href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+				integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+				crossorigin="anonymous"
+			/>
 			<Navigation />
 			<Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
 			<Container>
@@ -239,25 +267,25 @@ const Home = props => {
 									href="https://www.linkedin.com/in/alexte/"
 									target="_blank"
 								>
-									web
+									<i class="fas fa-globe" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									git
+									<i class="fab fa-github" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									in
+									<i class="fab fa-linkedin" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									twit
+									<i class="fab fa-twitter" />
 								</a>
 							</Social>
 						</Team>
@@ -272,25 +300,25 @@ const Home = props => {
 									href="https://www.linkedin.com/in/alexte/"
 									target="_blank"
 								>
-									web
+									<i class="fas fa-globe" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									git
+									<i class="fab fa-github" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									in
+									<i class="fab fa-linkedin" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									twit
+									<i class="fab fa-twitter" />
 								</a>
 							</Social>
 						</Team>
@@ -302,37 +330,30 @@ const Home = props => {
 									href="https://www.linkedin.com/in/alexte/"
 									target="_blank"
 								>
-									web
+									<i class="fas fa-globe" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									git
+									<i class="fab fa-github" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									in
+									<i class="fab fa-linkedin" />
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									twit
+									<i class="fab fa-twitter" />
 								</a>
 							</Social>
 						</Team>
 					</SelfieContainer>
-					{/*<Personal_Links>
-						<a
-							href="https://www.linkedin.com/in/alexte/"
-							target="_blank"
-						>
-							<i class="fab fa-linkedin" />
-						</a>
-					</Personal_Links>*/}
+					<Footer>Made with &lt;3 in Riverside</Footer>
 				</Intro4>
 			</Container>
 		</div>
