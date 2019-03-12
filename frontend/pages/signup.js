@@ -7,14 +7,13 @@ import Link from '../components/Link';
 import Navigation from '../components/Navigation';
 import ROUTES from '../constants/ROUTES';
 import { withFirebase } from '../components/Firebase';
->>>>>>> d85464bbf468d0a67f1236bbfb7c699077f33e16
 
 const INITIAL_STATE = {
-  username: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-  error: null
+  username: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  error: null,
 };
 
 const Logo = styled.img`
@@ -91,6 +90,8 @@ const SubHeader = styled(Header)`
 const Paragraph = styled.p`
   width: 357px;
   height: 50px;
+  display: block;
+  margin: 0 auto;
   color: ${({ theme }) => theme.navy};
   font-family: Nunito;
   font-style: normal;
@@ -148,9 +149,9 @@ class Signup extends Component {
 
     const isInvalid =
       password !== confirmPassword ||
-      password === "" ||
-      email === "" ||
-      username === "";
+      password === '' ||
+      email === '' ||
+      username === '';
 
     return (
       <div>
