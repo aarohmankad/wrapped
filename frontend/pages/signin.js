@@ -9,9 +9,9 @@ import ROUTES from '../constants/ROUTES';
 import { withFirebase } from '../components/Firebase';
 
 const INITIAL_STATE = {
-	email: '',
-	password: '',
-	error: null,
+  email: '',
+  password: '',
+  error: null,
 };
 
 const Logo = styled.img`
@@ -24,38 +24,38 @@ const Logo = styled.img`
 `;
 
 const Container = styled.div`
-	width: 100vw;
-	height: 100vh;
-	background-image: url(/static/login_background.jpg);
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/static/login_background.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	& input {
-		width: 100%;
-	}
+  & input {
+    width: 100%;
+  }
 `;
 
 const Header = styled.h1`
-	color: ${({ theme }) => theme.white};
-	font-family: 'Nunito', sans-serif;
-	font-style: normal;
-	font-weight: bold;
-	font-height: normal;
-	font-size: 72px;
+  color: ${({ theme }) => theme.white};
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-height: normal;
+  font-size: 72px;
 `;
 
 class Signin extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = { ...INITIAL_STATE };
-	}
+    this.state = { ...INITIAL_STATE };
+  }
 
-	onChange = event =>
-		this.setState({ [event.target.name]: event.target.value });
+  onChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
 
   onSubmit = event => {
     const { email, password } = this.state;
@@ -71,10 +71,10 @@ class Signin extends Component {
     event.preventDefault();
   };
 
-	render() {
-		const { email, password, error } = this.state;
+  render() {
+    const { email, password, error } = this.state;
 
-		const isInvalid = password === '' || email === '';
+    const isInvalid = password === '' || email === '';
 
     return (
       <div>
@@ -113,11 +113,10 @@ class Signin extends Component {
             </Link>
           </p>
           {error && <p>{error.message}</p>}
-        </form>
-      </Container>
+        </Container>
+      </div>
     );
   }
->>>>>>> d85464bbf468d0a67f1236bbfb7c699077f33e16
 }
 
 export default withFirebase(Signin);
