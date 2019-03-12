@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import router from "next/router";
-import styled from "styled-components";
-import ActionButton from "../components/Button/ActionButton";
-import Input from "../components/Input";
-import Link from "../components/Link";
-import Navigation from "../components/Navigation";
-import ROUTES from "../constants/ROUTES";
-import { withFirebase } from "../components/Firebase";
+import React, { Component } from 'react';
+import router from 'next/router';
+import styled from 'styled-components';
+import ActionButton from '../components/Button/ActionButton';
+import Input from '../components/Input';
+import Link from '../components/Link';
+import Navigation from '../components/Navigation';
+import ROUTES from '../constants/ROUTES';
+import { withFirebase } from '../components/Firebase';
+>>>>>>> d85464bbf468d0a67f1236bbfb7c699077f33e16
 
 const INITIAL_STATE = {
   username: "",
@@ -66,7 +67,7 @@ const InputContainer = styled.div`
 
 const Header = styled.h1`
   color: ${({ theme }) => theme.white};
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-height: normal;
@@ -200,7 +201,7 @@ class Signup extends Component {
                 Sign Up
               </PinkButton>
               <Paragraph>
-                Already have an account?{" "}
+                Already have an account?{' '}
                 <Link href={ROUTES.SIGN_IN.path}>{ROUTES.SIGN_IN.text}</Link>
               </Paragraph>
               {error && <p>{error.message}</p>}
