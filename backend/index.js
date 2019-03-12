@@ -1,3 +1,7 @@
+const express = require('express'),
+  app = express(),
+  port = process.env.PORT || 8000;
+
 const mail = require('@sendgrid/mail');
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -23,4 +27,14 @@ function scheduleEmail(event) {
   mail.send(msg);
 }
 
-exports.handler = scheduleEmail;
+app.use(express.json());
+
+app.post('/', (req, res) => {
+  console.log('Hello Request!', { body: req.body });
+  res.send({ success: 'maybe', body: req.body });
+  scheduleEmail(req.body);
+});
+
+// Start server
+app.listen(port);
+console.log(`Magic happens on port: ${port}`);
