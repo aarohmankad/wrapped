@@ -1,18 +1,20 @@
-import App, { Container } from 'next/app';
-import React from 'react';
-import { Provider } from 'react-redux';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import App, { Container } from "next/app";
+import React from "react";
+import { Provider } from "react-redux";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import Firebase, { FirebaseContext } from '../components/Firebase';
-import { authStateChanged } from '../redux/actions/Auth';
-import store from '../redux/store';
+import Firebase, { FirebaseContext } from "../components/Firebase";
+import { authStateChanged } from "../redux/actions/Auth";
+import store from "../redux/store";
 
 const theme = {
-  navy: '#323759',
-  grey: '#343434',
-  blue: '#2ec0f9',
-  white: '#fffffb',
-  pink: '#ff96ed',
+  navy: "#323759",
+  grey: "#343434",
+  lt_grey: "#8f91a4",
+  blue: "#2ec0f9",
+  lt_blue: "#8ddcfb",
+  white: "#fffffb",
+  pink: "#ff96ed"
 };
 
 const GlobalStyle = createGlobalStyle`

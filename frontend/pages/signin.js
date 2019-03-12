@@ -45,7 +45,6 @@ const Header = styled.h1`
 	font-weight: bold;
 	font-height: normal;
 	font-size: 72px;
-	width: 300px;
 `;
 
 class Signin extends Component {
@@ -77,43 +76,48 @@ class Signin extends Component {
 
 		const isInvalid = password === '' || email === '';
 
-		return (
-			<div>
-				<Navigation />
-				<Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
-				<Container>
-					<Header>wrapped.</Header>
-					<form onSubmit={this.onSubmit}>
-						<Input1
-							name="email"
-							value={email}
-							onChange={this.onChange}
-							type="text"
-							placeholder="email"
-						/>
-						<Input
-							name="password"
-							value={password}
-							onChange={this.onChange}
-							type="password"
-							placeholder="password"
-						/>
-						<ActionButton disabled={isInvalid} type="submit">
-							Sign In
-						</ActionButton>
-					</form>
+    return (
+      <div>
+        <Navigation />
+        <Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
+        <Container>
+          <Header>wrapped.</Header>
+          <form onSubmit={this.onSubmit}>
+            <Input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="email"
+            />
+            <Input
+              name="password"
+              value={password}
+              onChange={this.onChange}
+              type="password"
+              placeholder="password"
+            />
+            <ActionButton disabled={isInvalid} type="submit">
+              Sign In
+            </ActionButton>
+          </form>
 
-					<Link href={ROUTES.SIGN_UP.path}>
-						{ROUTES.SIGN_UP.text}.
-					</Link>
-					<Link href={ROUTES.FORGOT_PASSWORD.path}>
-						{ROUTES.FORGOT_PASSWORD.text}
-					</Link>
-					{error && <p>{error.message}</p>}
-				</Container>
-			</div>
-		);
-	}
+          <p>
+            Don't have an account?{' '}
+            <Link href={ROUTES.SIGN_UP.path}>{ROUTES.SIGN_UP.text}</Link>
+          </p>
+          <p>
+            Forgot your Password?{' '}
+            <Link href={ROUTES.FORGOT_PASSWORD.path}>
+              {ROUTES.FORGOT_PASSWORD.text}
+            </Link>
+          </p>
+          {error && <p>{error.message}</p>}
+        </form>
+      </Container>
+    );
+  }
+>>>>>>> d85464bbf468d0a67f1236bbfb7c699077f33e16
 }
 
 export default withFirebase(Signin);
