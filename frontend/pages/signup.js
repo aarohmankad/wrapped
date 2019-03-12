@@ -7,7 +7,6 @@ import Link from "../components/Link";
 import Navigation from "../components/Navigation";
 import ROUTES from "../constants/ROUTES";
 import { withFirebase } from "../components/Firebase";
-import { NONAME } from "dns";
 
 const INITIAL_STATE = {
   username: "",
