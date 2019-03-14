@@ -101,7 +101,6 @@ class Signin extends Component {
               Sign In
             </ActionButton>
           </form>
-
           <p>
             Don't have an account?{' '}
             <Link href={ROUTES.SIGN_UP.path}>{ROUTES.SIGN_UP.text}</Link>
