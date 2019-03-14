@@ -3,11 +3,6 @@ import styled from 'styled-components';
 import ActionButton from '../components/Button/ActionButton';
 import Navigation from '../components/Navigation';
 
-//my note: everything should be a div unless if in this case for Logo
-//its and img. then we can center and make it look nice
-//ex was like for a header. can use h1 h2 etc..
-//but can put it in a div and style it to be the size, position etc.
-
 //Known Bugs:
 //when changing the browser resolution, the page does not scale with it.
 // but signin.js does
@@ -212,6 +207,7 @@ const Home = props => {
 				href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 				integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
 				crossorigin="anonymous"
+				color="white"
 			/>
 			<Navigation />
 			<Logo src="../static/wrapped_logo.png" alt="wrapped_logo" />
@@ -267,25 +263,37 @@ const Home = props => {
 									href="https://www.google.com"
 									target="_blank"
 								>
-									<i class="fas fa-globe" />
+									<i
+										class="fas fa-globe"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://github.com/natashaorie"
 									target="_blank"
 								>
-									<i class="fab fa-github" />
+									<i
+										class="fab fa-github"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://www.linkedin.com/in/natashaorie/"
 									target="_blank"
 								>
-									<i class="fab fa-linkedin" />
+									<i
+										class="fab fa-linkedin"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
-									<i class="fab fa-twitter" />
+									<i
+										class="fab fa-twitter"
+										style={{ color: 'white' }}
+									/>
 								</a>
 							</Social>
 						</Team>
@@ -300,25 +308,37 @@ const Home = props => {
 									href="https://aarohmankad.com/"
 									target="_blank"
 								>
-									<i class="fas fa-globe" />
+									<i
+										class="fas fa-globe"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://github.com/aarohmankad"
 									target="_blank"
 								>
-									<i class="fab fa-github" />
+									<i
+										class="fab fa-github"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://www.linkedin.com/in/aarohmankad/"
 									target="_blank"
 								>
-									<i class="fab fa-linkedin" />
+									<i
+										class="fab fa-linkedin"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://twitter.com/AarohMankad"
 									target="_blank"
 								>
-									<i class="fab fa-twitter" />
+									<i
+										class="fab fa-twitter"
+										style={{ color: 'white' }}
+									/>
 								</a>
 							</Social>
 						</Team>
@@ -336,19 +356,28 @@ const Home = props => {
 									href="https://github.com/alexte1"
 									target="_blank"
 								>
-									<i class="fab fa-github" />
+									<i
+										class="fab fa-github"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://www.linkedin.com/in/alexte//"
 									target="_blank"
 								>
-									<i class="fab fa-linkedin" />
+									<i
+										class="fab fa-linkedin"
+										style={{ color: 'white' }}
+									/>
 								</a>
 								<a
 									href="https://twitter.com/alextegreat"
 									target="_blank"
 								>
-									<i class="fab fa-twitter" />
+									<i
+										class="fab fa-twitter"
+										style={{ color: 'white' }}
+									/>
 								</a>
 							</Social>
 						</Team>
