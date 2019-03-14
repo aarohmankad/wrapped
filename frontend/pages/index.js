@@ -264,19 +264,19 @@ const Home = props => {
 							<Name>Natasha Orie</Name>
 							<Social>
 								<a
-									href="https://www.linkedin.com/in/alexte/"
+									href="https://www.google.com"
 									target="_blank"
 								>
 									<i class="fas fa-globe" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://github.com/natashaorie"
 									target="_blank"
 								>
 									<i class="fab fa-github" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://www.linkedin.com/in/natashaorie/"
 									target="_blank"
 								>
 									<i class="fab fa-linkedin" />
@@ -297,25 +297,25 @@ const Home = props => {
 							<Name>Aaroh Mankad</Name>
 							<Social>
 								<a
-									href="https://www.linkedin.com/in/alexte/"
+									href="https://aarohmankad.com/"
 									target="_blank"
 								>
 									<i class="fas fa-globe" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://github.com/aarohmankad"
 									target="_blank"
 								>
 									<i class="fab fa-github" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://www.linkedin.com/in/aarohmankad/"
 									target="_blank"
 								>
 									<i class="fab fa-linkedin" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://twitter.com/AarohMankad"
 									target="_blank"
 								>
 									<i class="fab fa-twitter" />
@@ -326,26 +326,26 @@ const Home = props => {
 							<Selfie src="../static/alex.jpg" alt="alex.jpg" />
 							<Name>Alex Te</Name>
 							<Social>
-								<a
+								{/*<a
 									href="https://www.linkedin.com/in/alexte/"
 									target="_blank"
 								>
 									<i class="fas fa-globe" />
-								</a>
+								</a>*/}
 								<a
-									href="https://www.google.com/"
+									href="https://github.com/alexte1"
 									target="_blank"
 								>
 									<i class="fab fa-github" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://www.linkedin.com/in/alexte//"
 									target="_blank"
 								>
 									<i class="fab fa-linkedin" />
 								</a>
 								<a
-									href="https://www.google.com/"
+									href="https://twitter.com/alextegreat"
 									target="_blank"
 								>
 									<i class="fab fa-twitter" />
