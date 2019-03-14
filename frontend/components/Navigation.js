@@ -18,12 +18,12 @@ const List = styled.ul`
 
   & > li {
     display: inline;
-    margin: 50px;
+    margin: 20px;
     font-size: 28px;
     font-weight: bold;
 
     & > a {
-      color: black;
+      color: ${({ theme }) => theme.grey};
       text-decoration: none;
 
       &:hover {

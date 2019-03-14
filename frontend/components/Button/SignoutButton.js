@@ -1,8 +1,20 @@
 import React from 'react';
-import { withFirebase } from '../Firebase';
+import router from 'next/router';
 
-const SignoutButton = ({ firebase }) => (
-  <button onClick={firebase.doSignOut}> Sign Out</button>
+import { withFirebase } from '../Firebase';
+import ROUTES from '../../constants/ROUTES';
+
+const SignoutButton = props => (
+  <button
+    onClick={() => {
+      props.firebase.doSignOut();
+      router.push(ROUTES.HOME.path);
+    }}
+    {...props}
+  >
+    {' '}
+    Sign Out
+  </button>
 );
 
 export default withFirebase(SignoutButton);
