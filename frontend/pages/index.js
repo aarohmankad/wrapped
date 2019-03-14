@@ -206,7 +206,7 @@ const Home = props => {
 				rel="stylesheet"
 				href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 				integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-				crossorigin="anonymous"
+				crossOrigin="anonymous"
 				color="white"
 			/>
 			<Navigation />
@@ -215,9 +215,8 @@ const Home = props => {
 				<Intro>
 					wrapped.
 					<Intro_Description>
-						At wrapped, our goal is to make it easy for you to show
-						appreciation for your loved ones with the perfect gift,
-						every time.
+						At wrapped, our goal is to make it easy for you to show appreciation
+						for your loved ones with the perfect gift, every time.
 					</Intro_Description>
 				</Intro>
 			</Container>
@@ -225,10 +224,10 @@ const Home = props => {
 				<Intro2>
 					what is wrapped?
 					<Intro2_Description>
-						wrapped is a web application that helps you find the
-						perfect gift for your loved ones. We remind you when to
-						purchase your gift with emails, and help you manage all
-						the gifts you need to buy for any occasion!
+						wrapped is a web application that helps you find the perfect gift
+						for your loved ones. We remind you when to purchase your gift with
+						emails, and help you manage all the gifts you need to buy for any
+						occasion!
 					</Intro2_Description>
 				</Intro2>
 			</Container>
@@ -240,8 +239,7 @@ const Home = props => {
 							<li>75% of online shoppers use Amazon. </li>
 							<li>53% are last minute shoppers</li>
 							<li>
-								52% of shoppers prefer guarenteed dates over
-								free shipping
+								52% of shoppers prefer guarenteed dates over free shipping
 							</li>
 						</ListStyle>
 					</Intro3_Description>
@@ -253,10 +251,7 @@ const Home = props => {
 					team.
 					<SelfieContainer>
 						<Team>
-							<Selfie
-								src="../static/natasha.jpg"
-								alt="natasha.jpeg"
-							/>
+							<Selfie src="../static/natasha.jpg" alt="natasha.jpeg" />
 							<Name>Natasha Orie</Name>
 							<Social>
 								{/*<a
@@ -264,81 +259,48 @@ const Home = props => {
 									target="_blank"
 								>
 									<i
-										class="fas fa-globe"
+										className="fas fa-globe"
 										style={{ color: 'white' }}
 									/>
 								</a>*/}
-								<a
-									href="https://github.com/natashaorie"
-									target="_blank"
-								>
-									<i
-										class="fab fa-github"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://github.com/natashaorie" target="_blank">
+									<i className="fab fa-github" style={{ color: 'white' }} />
 								</a>
 								<a
 									href="https://www.linkedin.com/in/natashaorie/"
 									target="_blank"
 								>
-									<i
-										class="fab fa-linkedin"
-										style={{ color: 'white' }}
-									/>
+									<i className="fab fa-linkedin" style={{ color: 'white' }} />
 								</a>
 								{/*<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
 									<i
-										class="fab fa-twitter"
+										className="fab fa-twitter"
 										style={{ color: 'white' }}
 									/>
 								</a>*/}
 							</Social>
 						</Team>
 						<Team>
-							<Selfie
-								src="../static/aaroh.png"
-								alt="aaroh.jpeg"
-							/>
+							<Selfie src="../static/aaroh.png" alt="aaroh.jpeg" />
 							<Name>Aaroh Mankad</Name>
 							<Social>
-								<a
-									href="https://aarohmankad.com/"
-									target="_blank"
-								>
-									<i
-										class="fas fa-globe"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://aarohmankad.com/" target="_blank">
+									<i className="fas fa-globe" style={{ color: 'white' }} />
 								</a>
-								<a
-									href="https://github.com/aarohmankad"
-									target="_blank"
-								>
-									<i
-										class="fab fa-github"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://github.com/aarohmankad" target="_blank">
+									<i className="fab fa-github" style={{ color: 'white' }} />
 								</a>
 								<a
 									href="https://www.linkedin.com/in/aarohmankad/"
 									target="_blank"
 								>
-									<i
-										class="fab fa-linkedin"
-										style={{ color: 'white' }}
-									/>
+									<i className="fab fa-linkedin" style={{ color: 'white' }} />
 								</a>
-								<a
-									href="https://twitter.com/AarohMankad"
-									target="_blank"
-								>
-									<i
-										class="fab fa-twitter"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://twitter.com/AarohMankad" target="_blank">
+									<i className="fab fa-twitter" style={{ color: 'white' }} />
 								</a>
 							</Social>
 						</Team>
@@ -350,34 +312,16 @@ const Home = props => {
 									href="https://www.linkedin.com/in/alexte/"
 									target="_blank"
 								>
-									<i class="fas fa-globe" />
+									<i className="fas fa-globe" />
 								</a>*/}
-								<a
-									href="https://github.com/alexte1"
-									target="_blank"
-								>
-									<i
-										class="fab fa-github"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://github.com/alexte1" target="_blank">
+									<i className="fab fa-github" style={{ color: 'white' }} />
 								</a>
-								<a
-									href="https://www.linkedin.com/in/alexte//"
-									target="_blank"
-								>
-									<i
-										class="fab fa-linkedin"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://www.linkedin.com/in/alexte//" target="_blank">
+									<i className="fab fa-linkedin" style={{ color: 'white' }} />
 								</a>
-								<a
-									href="https://twitter.com/alextegreat"
-									target="_blank"
-								>
-									<i
-										class="fab fa-twitter"
-										style={{ color: 'white' }}
-									/>
+								<a href="https://twitter.com/alextegreat" target="_blank">
+									<i className="fab fa-twitter" style={{ color: 'white' }} />
 								</a>
 							</Social>
 						</Team>
