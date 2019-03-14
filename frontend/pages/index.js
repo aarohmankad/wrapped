@@ -259,7 +259,7 @@ const Home = props => {
 							/>
 							<Name>Natasha Orie</Name>
 							<Social>
-								<a
+								{/*<a
 									href="https://www.google.com"
 									target="_blank"
 								>
@@ -267,7 +267,7 @@ const Home = props => {
 										class="fas fa-globe"
 										style={{ color: 'white' }}
 									/>
-								</a>
+								</a>*/}
 								<a
 									href="https://github.com/natashaorie"
 									target="_blank"
@@ -286,7 +286,7 @@ const Home = props => {
 										style={{ color: 'white' }}
 									/>
 								</a>
-								<a
+								{/*<a
 									href="https://www.google.com/"
 									target="_blank"
 								>
@@ -294,7 +294,7 @@ const Home = props => {
 										class="fab fa-twitter"
 										style={{ color: 'white' }}
 									/>
-								</a>
+								</a>*/}
 							</Social>
 						</Team>
 						<Team>
