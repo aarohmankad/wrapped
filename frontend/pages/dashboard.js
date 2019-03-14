@@ -93,8 +93,8 @@ class Dashboard extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  componentDidMount() {
-    const { user } = this.props;
+  componentWillReceiveProps(props) {
+    const { user } = props;
     const { uid } = user;
     this.setState({ loading: true });
     this.props.firebase
@@ -143,7 +143,7 @@ class Dashboard extends Component {
     return (
       <Container>
         <Sidebar>
-          <h2>Welcome, {user.name}!</h2>
+          <h2>Welcome{user && `, ${user.name}`}!</h2>
           <p>You have {upcomingEvents.length} upcoming events.</p>
           <hr />
           <button
@@ -172,9 +172,9 @@ const mapStateToProps = ({ auth }, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({});
 
 export default compose(
-  withFirebase,
   connect(
     mapStateToProps,
     null
-  )
+  ),
+  withFirebase
 )(Dashboard);
