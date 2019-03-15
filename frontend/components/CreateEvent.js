@@ -93,7 +93,7 @@ class CreateEvent extends Component {
   onChange = event => {
     if (event.target.name === 'ideas') {
       this.setState({
-        [event.target.name]: event.target.value.split(','),
+        [event.target.name]: event.target.value.split(',').map(s => s.trim()),
       });
       return;
     }
@@ -101,15 +101,16 @@ class CreateEvent extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onSubmit = event => {
-    // console.log(this.props.user);
+  onSubmit = async event => {
     const { name, date, ideas } = this.state;
-    this.props.firebase.events().push({
-      name,
-      date,
-      ideas,
-      createdBy: this.props.user.uid,
-    });
+    const fetchedIdeas = await Promise.all(
+      ideas.map(async idea => ({
+        title: await fetch(`https://api.microlink.io/?url=${idea}`)
+          .then(res => res.json())
+          .catch(err => console.error('Error', err)),
+      }))
+    );
+    console.log(fetchedIdeas);
     this.setState({ ...INITIAL_STATE });
     this.closeModal();
   };
@@ -163,7 +164,7 @@ class CreateEvent extends Component {
               <label htmlFor="ideas">Do You Have Any Ideas?</label>
               <Textarea
                 name="ideas"
-                value={ideas.join(',')}
+                value={ideas.join(', ')}
                 onChange={this.onChange}
                 placeholder="A Dash of This, A Sprinkle of That"
                 color={this.props.theme.grey}
