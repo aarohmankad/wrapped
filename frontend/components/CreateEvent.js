@@ -95,7 +95,7 @@ class CreateEvent extends Component {
   onChange = event => {
     if (event.target.name === 'ideas') {
       this.setState({
-        [event.target.name]: event.target.value.split(','),
+        [event.target.name]: event.target.value.split(',').map(s => s.trim()),
       });
       return;
     }
@@ -168,7 +168,7 @@ class CreateEvent extends Component {
               <label htmlFor="ideas">Do You Have Any Ideas?</label>
               <Textarea
                 name="ideas"
-                value={ideas.join(',')}
+                value={ideas.join(', ')}
                 onChange={this.onChange}
                 placeholder="A Dash of This, A Sprinkle of That"
                 color={this.props.theme.grey}
