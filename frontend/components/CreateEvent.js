@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 import styled, { withTheme } from 'styled-components';
 
 import ActionButton from './Button/ActionButton';
+import email from '../services/email';
 import { withFirebase } from '../components/Firebase';
 import Input from './Input';
 import Textarea from './Textarea';
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
   name: '',
   date: '',
   ideas: [],
+  reminder: '',
   modalIsOpen: false,
 };
 
@@ -101,23 +103,25 @@ class CreateEvent extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onSubmit = async event => {
-    const { name, date, ideas } = this.state;
-    const fetchedIdeas = await Promise.all(
-      ideas.map(async idea => ({
-        title: await fetch(`https://api.microlink.io/?url=${idea}`)
-          .then(res => res.json())
-          .catch(err => console.error('Error', err)),
-      }))
-    );
-    console.log(fetchedIdeas);
+  onSubmit = e => {
+    const { name, date, ideas, reminder } = this.state;
+    const event = {
+      name,
+      date,
+      ideas,
+      reminder,
+      createdBy: this.props.user.uid,
+    };
+
+    this.props.firebase.events().push(event);
+    email.schedule({ ...event, gifter: this.props.user.email });
     this.setState({ ...INITIAL_STATE });
     this.closeModal();
   };
 
   render() {
-    const { name, date, ideas } = this.state;
-    const isInvalid = !name || !date;
+    const { name, date, ideas, reminder } = this.state;
+    const isInvalid = !name || !date || !reminder;
 
     return (
       <div>
@@ -167,6 +171,18 @@ class CreateEvent extends Component {
                 value={ideas.join(', ')}
                 onChange={this.onChange}
                 placeholder="A Dash of This, A Sprinkle of That"
+                color={this.props.theme.grey}
+                border={`1px solid ${this.props.theme.grey}`}
+                spacing="none"
+                width="100%"
+              />
+
+              <label htmlFor="reminder">When Would You Like A Reminder?</label>
+              <Input
+                name="reminder"
+                value={reminder}
+                onChange={this.onChange}
+                type="date"
                 color={this.props.theme.grey}
                 border={`1px solid ${this.props.theme.grey}`}
                 spacing="none"

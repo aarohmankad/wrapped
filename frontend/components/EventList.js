@@ -7,10 +7,6 @@ const EventList = ({ loading, events }) => {
     return <p>...</p>;
   }
 
-  if (!events.length) {
-    return <p>Make someone's day!</p>;
-  }
-
   return (
     <div>
       {events.map(event => (

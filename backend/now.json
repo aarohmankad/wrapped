@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "wrapped-lambda",
+  "alias": "wrapped-lambda",
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      },
+      "src": "/.*",
+      "dest": "/index.js"
+    }
+  ],
+  "env": {
+    "SENDGRID_API_KEY": "@sendgrid_api_key"
+  }
+}

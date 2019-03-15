@@ -45,6 +45,10 @@ const Header = styled.h1`
   font-weight: bold;
   font-height: normal;
   font-size: 72px;
+<<<<<<< HEAD
+=======
+  width: 300px;
+>>>>>>> backend api
 `;
 
 class Signin extends Component {
