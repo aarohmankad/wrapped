@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import router from 'next/router';
-import styled from 'styled-components';
-import ActionButton from '../components/Button/ActionButton';
-import Input from '../components/Input';
-import Link from '../components/Link';
-import Navigation from '../components/Navigation';
-import ROUTES from '../constants/ROUTES';
-import { withFirebase } from '../components/Firebase';
+import React, { Component } from "react";
+import router from "next/router";
+import styled from "styled-components";
+import ActionButton from "../components/Button/ActionButton";
+import Input from "../components/Input";
+import Link from "../components/Link";
+import Navigation from "../components/Navigation";
+import ROUTES from "../constants/ROUTES";
+import { withFirebase } from "../components/Firebase";
 
 const INITIAL_STATE = {
-  name: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-  error: null,
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  error: null
 };
 
 const Logo = styled.img`
@@ -23,6 +23,14 @@ const Logo = styled.img`
   z-index: 10;
   top: 25px;
   left: 25px;
+`;
+
+const Graphic = styled.img`
+  width: 330px;
+  height: auto;
+  position: absolute;
+  z-index: 9;
+  display: block;
 `;
 
 const Container = styled.div`
@@ -58,6 +66,8 @@ const LeftBox = styled(RightBox)`
   background: ${({ theme }) => theme.lt_blue};
   box-shadow: 0px;
   border-radius: 25px 0px 0px 25px;
+  // vertical-align: middle;
+  justify-content: center;
 `;
 
 const InputContainer = styled.div`
@@ -66,7 +76,7 @@ const InputContainer = styled.div`
 
 const Header = styled.h1`
   color: ${({ theme }) => theme.white};
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-height: normal;
@@ -149,9 +159,9 @@ class Signup extends Component {
 
     const isInvalid =
       password !== confirmPassword ||
-      password === '' ||
-      email === '' ||
-      name === '';
+      password === "" ||
+      email === "" ||
+      name === "";
 
     return (
       <div>
@@ -159,7 +169,12 @@ class Signup extends Component {
         <Logo src="../static/wrapped_logo.png" alt="wrapped-logo" />
         {/*  <Header> Sign up</Header> */}
         <Container>
-          <LeftBox />
+          <LeftBox>
+            <Graphic
+              src="../static/wrapped_signup.png"
+              alt="wrapped-signup-graphic"
+            />
+          </LeftBox>
           <RightBox>
             <SubHeader>Welcome to Wrapped!</SubHeader>
             <Paragraph>
@@ -202,7 +217,7 @@ class Signup extends Component {
                 Sign Up
               </PinkButton>
               <Paragraph>
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <Link href={ROUTES.SIGN_IN.path}>{ROUTES.SIGN_IN.text}</Link>
               </Paragraph>
               {error && <p>{error.message}</p>}
