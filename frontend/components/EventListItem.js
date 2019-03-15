@@ -19,6 +19,12 @@ const StyledEventListItem = styled.div`
   border-radius: 20px;
   margin-top: 25px;
 
+  & i {
+    text-align: right;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
   & a {
     color: ${({ theme }) => theme.grey};
     text-decoration: none;
@@ -114,7 +120,7 @@ class EventListItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...props.event, fetching: false };
+    this.state = { ...props.event, isRendered: true };
   }
 
   onSortEnd = ({ oldIndex, newIndex }) => {
@@ -127,15 +133,23 @@ class EventListItem extends Component {
     this.props.firebase.events(this.state.uid).update(updatedIndices);
   };
 
-  render() {
-    const { name, date, ideas, uid, fetching } = this.state;
+  deleteEvent = () => {
+    this.props.firebase.events(this.state.uid).remove();
+    this.setState({
+      isRendered: false,
+    });
+  };
 
-    if (fetching) {
+  render() {
+    const { name, date, ideas, uid, isRendered } = this.state;
+
+    if (!isRendered) {
       return null;
     }
 
     return (
       <StyledEventListItem>
+        <i onClick={this.deleteEvent}>X</i>
         <h2>{name}'s Special Day</h2>
         <p>{date}</p>
         <p>Some of your ideas:</p>
