@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import {
   sortableContainer,
   sortableElement,
-  sortableHandle,
   arrayMove,
 } from 'react-sortable-hoc';
-import styled from 'styled-components';
+import { compose } from 'recompose';
+import styled, { withTheme } from 'styled-components';
+
+import Input from './Input';
+import { withFirebase } from '../components/Firebase';
 
 const StyledEventListItem = styled.div`
   background: ${({ theme }) => theme.white};
@@ -51,22 +54,16 @@ const StyledEventListItem = styled.div`
     & div.list-item {
       padding: 7px;
       padding-left: 0px;
-      display: inline-block;
     }
   }
 `;
 
-const DragHandle = sortableHandle(() => <div className="list-handle" />);
 const SortableItem = sortableElement(({ value }) => (
-  <div>
-    <DragHandle />
-    <div className="list-item">
-      <a href={value.url}>{value.title}</a>
-    </div>
+  <div className="list-item">
+    <a href={value}>{value}</a>
   </div>
 ));
 const SortableList = sortableContainer(({ items }) => {
-  console.log(items);
   return (
     <div className="list">
       {items.map((item, index) => (
@@ -76,21 +73,62 @@ const SortableList = sortableContainer(({ items }) => {
   );
 });
 
+const INITIAL_STATE = {
+  new_idea: '',
+};
+class AddListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...INITIAL_STATE };
+  }
+
+  onChange = event =>
+    this.setState({ [event.target.name]: event.target.value });
+
+  onKeyPress = event => {
+    if (event.key !== 'Enter') return;
+
+    this.props.firebase
+      .event(this.props.uid)
+      .update({ ideas: [...this.props.ideas, event.target.value] });
+    this.setState({ ...INITIAL_STATE });
+  };
+
+  render() {
+    const { new_idea } = this.state;
+    return (
+      <Input
+        onChange={this.onChange}
+        onKeyPress={this.onKeyPress}
+        name="new_idea"
+        value={new_idea}
+        background={this.props.theme.pink}
+        spacing="0px"
+        width="100%"
+      />
+    );
+  }
+}
+
 class EventListItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...props.event, fetching: true };
+    this.state = { ...props.event, fetching: false };
   }
 
   onSortEnd = ({ oldIndex, newIndex }) => {
-    this.setState(({ ideas }) => ({
+    const { ideas } = this.state;
+    const updatedIndices = {
       ideas: arrayMove(ideas, oldIndex, newIndex),
-    }));
+    };
+
+    this.setState(() => updatedIndices);
+    this.props.firebase.events(this.state.uid).update(updatedIndices);
   };
 
   render() {
-    const { name, date, ideas, fetching } = this.state;
+    const { name, date, ideas, uid, fetching } = this.state;
 
     if (fetching) {
       return null;
@@ -102,15 +140,21 @@ class EventListItem extends Component {
         <p>{date}</p>
         <p>Some of your ideas:</p>
         {ideas && ideas.length && (
-          <SortableList
-            items={ideas}
-            onSortEnd={this.onSortEnd}
-            useDragHandle
-          />
+          <SortableList items={ideas} onSortEnd={this.onSortEnd} />
         )}
+
+        <AddListItem
+          firebase={this.props.firebase}
+          theme={this.props.theme}
+          ideas={ideas}
+          uid={uid}
+        />
       </StyledEventListItem>
     );
   }
 }
 
-export default EventListItem;
+export default compose(
+  withFirebase,
+  withTheme
+)(EventListItem);
